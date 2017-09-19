@@ -45,8 +45,8 @@ def edit_email(id):
 	"""
 	mail = MailMail.query.get_or_404(id)
 	if request.method == 'POST':
-		mail.email = request.form['email']
-		mail.email_subject = request.form['email_subject']
+		mail.email = request.form.get('email', None)
+		mail.email_subject = request.form.get('email_subject', None)
 
 		db.session.add(mail)
 		db.session.commit()
