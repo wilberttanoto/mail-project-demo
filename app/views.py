@@ -45,8 +45,6 @@ def edit_email(id):
 	"""
 	mail = MailMail.query.get_or_404(id)
 	if request.method == 'POST':
-		print request.form['email']
-		print request.form['email_subject']
 		mail.email = request.form['email']
 		mail.email_subject = request.form['email_subject']
 
