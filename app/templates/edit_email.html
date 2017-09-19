@@ -1,0 +1,33 @@
+
+<!DOCTYPE html>
+<html>
+{% extends "base.html" %}
+{% block title %}
+		Edit Email
+{% endblock %}
+{% block body %}
+<div class="content-section">
+  <div class="outer">
+    <div class="middle">
+      <div class="inner">
+        <h1 style="text-align:center;">Emails</h1>
+        <div class="center">
+            <h1>Edit Email</h1>
+            <br/>
+            <form action="" method="POST" name="login">
+                Email:<br>
+                <input type="text" name="email" value="{{email}}"><br>
+                Subject:<br>
+                <input type="text" name="email_subject" value="{{email_subject}}"><br>
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+</html>
+
+
+
