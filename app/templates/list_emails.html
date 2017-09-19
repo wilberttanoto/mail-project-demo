@@ -3,16 +3,21 @@
 <html>
 {% import "bootstrap/utils.html" as utils %}
 {% extends "base.html" %}
-{% block title %}Mails{% endblock %}
+{% block title %}
+	Emails
+{% endblock %}
 {% block body %}
 <div class="content-section">
   <div class="outer">
     <div class="middle">
       <div class="inner">
+        <div class="center">
+            <h1>Listing all emails</h1>
+            <br/>
+        </div>
         <br/>
         {{ utils.flashed_messages() }}
         <br/>
-        <h1 style="text-align:center;">Emails</h1>
         {% if emails %}
           <hr class="intro-divider">
           <div class="center">
@@ -20,28 +25,32 @@
               <thead>
                 <tr>
                   <th width="15%"> Email </th>
-                  <th width="40%"> Email Subject </th>
+                  <th width="25%"> Email Subject </th>
+                  <th width="15%"> Timestamp </th>
                   <th width="15%"> Status </th>
                   <th width="15%"> Edit </th>
                   <th width="15%"> Delete </th>
                 </tr>
               </thead>
               <tbody>
+              	{% for email in emails %}
               	<tr>
-              		<td>Test mail</td>
-              		<td>Test mail subject</td>
-              		<td>Sent</td>
-              		<td>
-	                    <a href="#">
-	                      <i class="fa fa-pencil"></i> Edit 
-	                    </a>
-                  	</td>
-                  	<td>
-	                    <a href="#">
-	                      <i class="fa fa-trash"></i> Delete 
-	                    </a>
-                  	</td>
-              	</tr>
+                  <td> {{ email.email }} </td>
+                  <td> {{ email.email_subject }} </td>
+                  <td> {{ email.timestamp }} </td>
+                  <td> - </td>
+                  <td>
+                    <a href="{{ url_for('edit_email', id=email.id) }}">
+                      <i class="fa fa-pencil"></i> Edit 
+                    </a>
+                  </td>
+                  <td>
+                    <a href="{{ url_for('delete_mail', id=email.id) }}">
+                      <i class="fa fa-trash"></i> Delete 
+                    </a>
+                  </td>
+                </tr>
+              	{% endfor %}
               </tbody>
             </table>
           </div>
@@ -51,7 +60,7 @@
             <h3> No Emails have been added. </h3>
             <hr class="intro-divider">
         {% endif %}
-          <a href="#" class="btn btn-default btn-lg">
+          <a href="{{ url_for('add_email') }}" class="btn btn-default btn-lg">
             <i class="fa fa-plus"></i>
             Add Emails
           </a>
