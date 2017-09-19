@@ -1,0 +1,67 @@
+
+<!DOCTYPE html>
+<html>
+{% import "bootstrap/utils.html" as utils %}
+{% extends "base.html" %}
+{% block title %}Mails{% endblock %}
+{% block body %}
+<div class="content-section">
+  <div class="outer">
+    <div class="middle">
+      <div class="inner">
+        <br/>
+        {{ utils.flashed_messages() }}
+        <br/>
+        <h1 style="text-align:center;">Emails</h1>
+        {% if emails %}
+          <hr class="intro-divider">
+          <div class="center">
+            <table class="table table-striped table-bordered">
+              <thead>
+                <tr>
+                  <th width="15%"> Email </th>
+                  <th width="40%"> Email Subject </th>
+                  <th width="15%"> Status </th>
+                  <th width="15%"> Edit </th>
+                  <th width="15%"> Delete </th>
+                </tr>
+              </thead>
+              <tbody>
+              	<tr>
+              		<td>Test mail</td>
+              		<td>Test mail subject</td>
+              		<td>Sent</td>
+              		<td>
+	                    <a href="#">
+	                      <i class="fa fa-pencil"></i> Edit 
+	                    </a>
+                  	</td>
+                  	<td>
+	                    <a href="#">
+	                      <i class="fa fa-trash"></i> Delete 
+	                    </a>
+                  	</td>
+              	</tr>
+              </tbody>
+            </table>
+          </div>
+          <div style="text-align: center">
+        {% else %}
+          <div style="text-align: center">
+            <h3> No Emails have been added. </h3>
+            <hr class="intro-divider">
+        {% endif %}
+          <a href="#" class="btn btn-default btn-lg">
+            <i class="fa fa-plus"></i>
+            Add Emails
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+</html>
+
+
+
