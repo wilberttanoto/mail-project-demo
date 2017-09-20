@@ -13,12 +13,10 @@ MAIL_SERVER = 'smtp.googlemail.com'
 MAIL_PORT = 465
 MAIL_USE_TLS = False
 MAIL_USE_SSL = True
-MAIL_USERNAME = 'wilbert.social@gmail.com'
-MAIL_PASSWORD = 'w1lbert_social'
-MAIL_DEFAULT_SENDER = 'wilbert.social@gmail.com'
+MAIL_USERNAME = os.environ.get('MAIL_USERNAME')
+MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD')
+MAIL_DEFAULT_SENDER = 'example@exampple.com'
 
 # Celery configuration
 CELERY_BROKER_URL = 'redis://localhost:6379/0'
 CELERY_RESULT_BACKEND = 'redis://localhost:6379/0'
-
-accept_content=['json','pickle']
