@@ -77,6 +77,10 @@ def edit_email(id):
 		try:
 			db.session.add(email)
 			db.session.commit()
+
+			if email.timestamp > datetime.now():
+				msg={'recipients':[email.email],'email_subject':email.email_subject,'email_body':email.email_body}
+				send_async_email.apply_async(kwargs=msg, eta=email.timestamp)
 			flash('You have successfully editted a new email.')
 		except:
 			flash('Something went wrong with the email.')
