@@ -23,9 +23,8 @@
               <thead>
                 <tr>
                   <th width="15%" class="text-center"> Email </th>
-                  <th width="25%" class="text-center"> Email Subject </th>
+                  <th width="35%" class="text-center"> Email Subject </th>
                   <th width="15%" class="text-center"> Timestamp to send</th>
-                  <th width="15%" class="text-center"> Status </th>
                   <th width="15%" class="text-center"> Edit </th>
                   <th width="15%" class="text-center"> Delete </th>
                 </tr>
@@ -36,7 +35,6 @@
                   <td> {{ email.email }} </td>
                   <td> {{ email.email_subject }} </td>
                   <td> {{ email.timestamp }} </td>
-                  <td> - </td>
                   <td>
                     <a href="{{ url_for('edit_email', id=email.id) }}">
                       <i class="fa fa-pencil"></i> Edit 
